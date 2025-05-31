@@ -1,0 +1,5 @@
+/venv
+/templates
+/settings
+/archives
+.env
