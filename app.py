@@ -169,6 +169,19 @@ def update_member(member_id):
     return member_schema.jsonify(member), 200
 
 
+# DELETE SPECIFIC MEMBER
+@app.route("/members/<int:member_id>", methods=["DELETE"])
+def delete_member(member_id):
+    member = db.session.get(Member, member_id)
+
+    if not member:
+        return jsonify({"error": "Member not found."}), 400
+
+    db.session.delete(member)
+    db.session.commit()
+    return jsonify({"message": f"Member id: {member_id}, successfully deleted."}), 200
+
+
 # Create the database tables
 with app.app_context():
     db.create_all()

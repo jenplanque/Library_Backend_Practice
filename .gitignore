@@ -3,3 +3,8 @@
 /settings
 /archives
 .env
+.DS_Store
+
+# run the following commands to set up a global .gitignore file
+# touch ~/.gitignore_global
+# git config --global core.excludesfile ~/.gitignore_global
