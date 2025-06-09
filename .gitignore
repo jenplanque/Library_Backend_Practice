@@ -2,8 +2,9 @@
 /templates
 /settings
 /archives
-.env
-.DS_Store
+/instance
+/.env
+/.DS_Store
 
 # run the following commands to set up a global .gitignore file
 # touch ~/.gitignore_global

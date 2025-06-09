@@ -8,7 +8,7 @@ with app.app_context():
 
     app.run()
 
-# ---
+# --- REMOVE ALL BELOW THIS LINE ---
 
 from flask import Flask, request, jsonify
 from typing import List
@@ -21,13 +21,6 @@ from sqlalchemy import select
 
 app = Flask(__name__)
 
-# sets the DB URI to use a SQLite database named users.db.
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
-
-
-# app.config["SQLALCHEMY_DATABASE_URI"] = (
-#     "mysql+mysqlconnector://root:MYPASSWORD@localhost/library_db"
-# )
 
 
 # Create a base class for our models
