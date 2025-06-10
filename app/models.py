@@ -36,9 +36,9 @@ class Member(Base):
     DOB: Mapped[date]
     password: Mapped[str] = mapped_column(db.String(255), nullable=False)
 
-    loans: Mapped[List["Loan"]] = db.relationship(
-        back_populates="member"
-    )  # New relationship attribute
+    # loans: Mapped[List["Loan"]] = db.relationship(
+    #     "Loan", secondary=loan_member, back_populates="member"
+    # )
 
 
 class Book(Base):
@@ -62,9 +62,8 @@ class Loan(Base):
     loan_date: Mapped[date] = mapped_column(db.Date)
     member_id: Mapped[int] = mapped_column(db.ForeignKey("members.id"))
 
-    member: Mapped["Member"] = db.relationship(
-        back_populates="loans"
-    )  # New relationship attribute
+    member: Mapped["Member"] = db.relationship("Member", back_populates="loans")
+
     books: Mapped[List["Book"]] = db.relationship(
-        secondary=loan_book, back_populates="loans"
+        "Book", secondary=loan_book, back_populates="loans"
     )

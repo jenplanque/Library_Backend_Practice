@@ -1,12 +1,12 @@
 from app.extensions import ma
-from app.models import Customer
+from app.models import Member
 
 
-class CustomerSchema(ma.SQLAlchemyAutoSchema):
+class MemberSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Customer
+        model = Member
         # load_instance = True
 
 
-customer_schema = CustomerSchema()
-customers_schema = CustomerSchema(many=True)
+member_schema = MemberSchema()
+members_schema = MemberSchema(many=True)
